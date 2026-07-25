@@ -1,4 +1,5 @@
 @echo off
+title ydshell
 set ver=ydshell version:[ywsa-dev:ydshell:1.5]
 echo ywsa-dev cmd command launcher
 echo You can view the help information using the "help" command.
@@ -24,6 +25,8 @@ echo               /changepowershell not start cmd. start powershell.
 echo rem  It's same:cmd rem
 echo tsli  You can know what program running.
 echo destory  You can definitely delete the file.
+echo ydshell  Ydshell in ydshell.
+echo               /shutdown exit ydshell.
 ) else if "%first%"=="veris" (
 ver
 ) else if "%first%"=="now" (
@@ -67,12 +70,22 @@ del "%second%"
 echo %ver%
 ) else if "%first%" == "ydshell" (
 if "%second%" == "" (
-echo .
+echo.
 echo ywsa-dev cmd command launcher
 echo You can view the help information using the "help" command.
 echo ydshell version:[ywsa-dev:ydshell:1.0]
 echo.
 set /a noexit=%noexit%+1
+) else if "%second%" == "/shutdown" (
+if %noexit% == 0 (
+echo shutdown ydshell...
+timeout /t 1 /nobreak >nul
+exit
+) else (
+set /a noexit=%noexit-1
+)
+) else (
+echo The command is invalid.
 )
 ) else (
 echo "%first%" is an unknown command.
