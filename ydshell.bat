@@ -118,7 +118,7 @@ echo The command is invalid.
 if "%second%" == "/?" (echo waitkey  pause and nul.&echo /real only pause.&goto LOOP)
 if "%second%" == "" (pause >nul) else if "%second%" == "/real" (pause) else (echo The command is invalid.)
 ) else if "%first%" == "start" (
-if "%second%" == "/?" (echo start program.&goto LOOP) else if "%second%" == "" (start %second%) else (echo The command is invalid.)
+if "%second%" == "/?" (echo start program.&goto LOOP) else (start %second%)
 ) else if "%first%" == "myip" (
 if "%second%" == "/?" (echo You can see your ip.&goto LOOP) else if "%second%" == "" (ipconfig | findstr /i "IPv4") else (echo The command is invalid.)
 ) else if "%first%" == "echo" (
