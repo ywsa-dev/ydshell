@@ -95,7 +95,7 @@ echo shutdown ydshell...
 timeout /t 1 /nobreak >nul
 exit
 ) else (
-set /a noexit=%noexit-1
+set /a noexit-=1
 )
 ) else (
 echo The command is invalid.
