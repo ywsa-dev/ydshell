@@ -1,6 +1,6 @@
 @echo off
 title ydshell
-set ver=ydshell version:[ywsa-dev:ydshell:1.5]
+set ver=ydshell version:[ywsa-dev:ydshell:1.7]
 echo ywsa-dev cmd command launcher
 echo You can view the help information using the "help" command.
 echo %ver%
