@@ -1,6 +1,6 @@
 @echo off
 title ydshell
-set ver=ydshell version:[ywsa-dev:ydshell:1.7]
+set ver=ydshell version:[ywsa-dev:ydshell:1.9]
 echo ywsa-dev cmd command launcher
 echo You can view the help information using the "help" command.
 echo %ver%
@@ -27,6 +27,8 @@ echo tsli  You can know what program running.
 echo destory  You can definitely delete the file.
 echo ydshell  Ydshell in ydshell.
 echo               /shutdown exit ydshell.
+echo waitkey  pause and nul.
+echo               /real only pause.
 ) else if "%first%"=="veris" (
 ver
 ) else if "%first%"=="now" (
@@ -87,6 +89,8 @@ set /a noexit=%noexit-1
 ) else (
 echo The command is invalid.
 )
+) else if "%first%" == "waitkey" (
+if "%second%" == "" (pause >nul) else if "%second%" == "/real" (pause) else (echo The command is invalid.)
 ) else (
 echo "%first%" is an unknown command.
 )
