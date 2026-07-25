@@ -26,7 +26,7 @@ echo cmdstart  start cmd.
 echo               /changepowershell not start cmd. start powershell.
 echo rem  It's same:cmd rem
 echo tsli  You can know what program running.
-echo destory  You can definitely delete the file.
+echo destroy  You can definitely delete the file.
 echo ydshell  Ydshell in ydshell.
 echo               /shutdown exit ydshell.
 echo waitkey  pause and nul.
@@ -73,7 +73,7 @@ rem rem
 ) else if "%first%" == "tsli" (
 if "%second%" == "/?" (echo You can know what program running.&goto LOOP)
 tasklist /fi "status eq running"
-) else if "%first%" == "destory" (
+) else if "%first%" == "destroy" (
 if "%second%" == "/?" (echo You can definitely delete the file.&goto LOOP)
 takeown /f "%second%"
 icacls "%second%" /grant Administrators:F
