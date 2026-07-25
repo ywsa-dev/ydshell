@@ -73,7 +73,7 @@ if "%second%" == "" (
 echo.
 echo ywsa-dev cmd command launcher
 echo You can view the help information using the "help" command.
-echo ydshell version:[ywsa-dev:ydshell:1.0]
+echo %ver%
 echo.
 set /a noexit=%noexit%+1
 ) else if "%second%" == "/shutdown" (
