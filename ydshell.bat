@@ -8,9 +8,21 @@ echo.
 set noexit=0
 :LOOP
 set /p "ydshell=ydshell> "
-for /f "tokens=1,2 delims= " %%a in ("%ydshell%") do (
+for /f "tokens=1,2,3,4,5 delims= " %%a in ("%ydshell%") do (
 set "first=%%a"
 set "second=%%b"
+set "third=%%c"
+set "fourth=%%d"
+set "fifth=%%e"
+)
+for /f "tokens=1,* delims= " %%a in ("%ydshell%") do (
+set "first=%%a"
+set "firstnext=%%b"
+)
+for /f "tokens=1,2,* delims= " %%a in ("%ydshell%") do (
+set "first=%%a"
+set "second=%%b"
+set "secondnext=%%c"
 )
 if "%first%"=="help" (
 if "%second%" == "/?" (echo Displays help for each command.&goto LOOP)
@@ -33,6 +45,7 @@ echo waitkey  pause and nul.
 echo               /real only pause.
 echo start  start program.
 echo myip  You can see your ip.
+echo echo  You can print someting.
 echo help:/?
 ) else if "%first%"=="veris" (
 if "%second%" == "/?" (echo You can see computer os version.&goto LOOP)
@@ -108,6 +121,9 @@ if "%second%" == "" (pause >nul) else if "%second%" == "/real" (pause) else (ech
 if "%second%" == "/?" (echo start program.&goto LOOP) else if "%second%" == "" (start %second%) else (echo The command is invalid.)
 ) else if "%first%" == "myip" (
 if "%second%" == "/?" (echo You can see your ip.&goto LOOP) else if "%second%" == "" (ipconfig | findstr /i "IPv4") else (echo The command is invalid.)
+) else if "%first%" == "echo" (
+if "%second%" == "/?" (echo You can print someting.&goto LOOP)
+echo %firstnext%
 ) else (
 echo "%first%" is an unknown command.
 )
